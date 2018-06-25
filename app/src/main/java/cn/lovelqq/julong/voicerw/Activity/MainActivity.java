@@ -1,4 +1,4 @@
-package cn.lovelqq.julong.voicerw;
+package cn.lovelqq.julong.voicerw.Activity;
 
 
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import Voice.DistinguishUtils;
 import Voice.SynthesisUtils;
+import cn.lovelqq.julong.voicerw.MyApplication;
+import cn.lovelqq.julong.voicerw.R;
 import netWork.GetCallbackDate;
 import netWork.HttpCallbackListener;
 import netWork.Json.GetVoiceJson;

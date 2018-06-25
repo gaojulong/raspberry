@@ -1,4 +1,4 @@
-package cn.lovelqq.julong.voicerw;
+package cn.lovelqq.julong.voicerw.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +16,8 @@ import android.widget.Toast;
 import cn.lovelqq.julong.voicerw.LoginUtils.Base64Utils;
 import cn.lovelqq.julong.voicerw.LoginUtils.LoadingDialog;
 import cn.lovelqq.julong.voicerw.LoginUtils.SharedPreferencesUtils;
+import cn.lovelqq.julong.voicerw.LoginUtils.User;
+import cn.lovelqq.julong.voicerw.R;
 
 public class LoginActivity extends Activity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener {
     //布局内的控件
@@ -184,14 +186,16 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
                 }
 
                 //判断账号和密码
-                if (getAccount().equals("123456") && getPassword().equals("123456")) {
+                if (getAccount().equals("webiopi") && getPassword().equals("raspberry")) {
                     showToast("登录成功");
                     loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
-
+                    User.setUserID(getIP());//保存当前的用户信息
+                    User.setUserName(getAccount());
+                    User.setUserPswd(getPassword());
                     startActivity(new Intent(LoginActivity.this, WebiopiActivity.class));
                     finish();//关闭页面
                 } else {
-                    showToast("输入的登录账号或密码不正确");
+                    showToast("输入的登录信息不正确");
                 }
 
                 setLoginBtnClickable(true);  //这里解放登录按钮，设置为可以点击
@@ -325,6 +329,7 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
     private void loadCheckBoxState() {
         loadCheckBoxState(checkBox_password, checkBox_login);
     }
+
 
     /**
      * 保存按钮的状态值

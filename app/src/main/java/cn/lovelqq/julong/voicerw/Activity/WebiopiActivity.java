@@ -1,4 +1,4 @@
-package cn.lovelqq.julong.voicerw;
+package cn.lovelqq.julong.voicerw.Activity;
 
 import android.app.Activity;
 import android.support.v4.app.INotificationSideChannel;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import cn.lovelqq.julong.voicerw.R;
+import netWork.okhttp.Okhttp;
 
 
 public class WebiopiActivity extends Activity implements View.OnClickListener {
@@ -44,6 +45,7 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
                 Toast.makeText(this,"GPIO2",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.GPIOInOrOut3:
+                Okhttp.okHttpGet();
                 Toast.makeText(this,"GPIO3",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.GPIOInOrOut4:
