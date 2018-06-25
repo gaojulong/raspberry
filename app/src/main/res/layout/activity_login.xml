@@ -9,10 +9,11 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:text="登录界面"
-        android:textColor="@color/orange"
+        android:background="@color/orange_deep"
+        android:textColor="@color/white"
         android:textSize="20sp"
         />
 

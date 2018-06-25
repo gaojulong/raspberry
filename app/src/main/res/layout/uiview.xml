@@ -45,6 +45,7 @@
                                 android:onClick="onClick"
                                 android:id="@+id/butPin1"
                                 android:layout_weight="1"
+
                                 android:text="1"/>
 
                             <Button
@@ -71,6 +72,8 @@
                                 android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut2"
                                 android:layout_weight="1"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 android:text="@string/in"/>
 
                             <TextView

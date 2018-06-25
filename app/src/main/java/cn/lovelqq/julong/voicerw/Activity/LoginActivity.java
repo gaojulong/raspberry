@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -13,11 +14,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 import cn.lovelqq.julong.voicerw.LoginUtils.Base64Utils;
 import cn.lovelqq.julong.voicerw.LoginUtils.LoadingDialog;
 import cn.lovelqq.julong.voicerw.LoginUtils.SharedPreferencesUtils;
 import cn.lovelqq.julong.voicerw.LoginUtils.User;
 import cn.lovelqq.julong.voicerw.R;
+import netWork.okhttp.Okhttp;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class LoginActivity extends Activity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener {
     //布局内的控件
@@ -34,6 +43,7 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initViews();
@@ -165,44 +175,67 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
             showToast("你输入的账号为空！");
             return;
         }
-
         if (getPassword().isEmpty()){
             showToast("你输入的密码为空！");
             return;
         }
         //登录一般都是请求服务器来判断密码是否正确，要请求网络，要子线程
         showLoading();//显示加载框
-        Thread loginRunnable = new Thread() {
-
+        OkHttpClient client = new Okhttp().getOkClien();
+        Request request = new Okhttp().getOkrequest();
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void run() {
-                super.run();
-                setLoginBtnClickable(false);//点击登录后，设置登录按钮不可点击状态
-                //睡眠3秒
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                //判断账号和密码
-                if (getAccount().equals("webiopi") && getPassword().equals("raspberry")) {
-                    showToast("登录成功");
-                    loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
-                    User.setUserID(getIP());//保存当前的用户信息
-                    User.setUserName(getAccount());
-                    User.setUserPswd(getPassword());
-                    startActivity(new Intent(LoginActivity.this, WebiopiActivity.class));
-                    finish();//关闭页面
-                } else {
-                    showToast("输入的登录信息不正确");
-                }
-
+            public void onFailure(Call call, IOException e) {
+                showToast("输入的登录信息不正确");
                 setLoginBtnClickable(true);  //这里解放登录按钮，设置为可以点击
                 hideLoading();//隐藏加载框
             }
-        };
-        loginRunnable.start();
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                showToast("登录成功");
+                loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
+                User.setUserID(getIP());//保存当前的用户信息
+                User.setUserName(getAccount());
+                User.setUserPswd(getPassword());
+                startActivity(new Intent(LoginActivity.this, WebiopiActivity.class));
+                finish();//关闭页面
+                setLoginBtnClickable(true);  //这里解放登录按钮，设置为可以点击
+                hideLoading();//隐藏加载框
+            }
+
+        });
+//        Thread loginRunnable = new Thread() {
+//
+//            @Override
+//            public void run() {
+//                super.run();
+//                setLoginBtnClickable(false);//点击登录后，设置登录按钮不可点击状态
+//                //睡眠3秒
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                //判断账号和密码
+//                if (getAccount().equals("webiopi") && getPassword().equals("raspberry")) {
+//                    showToast("登录成功");
+//                    loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
+//                    User.setUserID(getIP());//保存当前的用户信息
+//                    User.setUserName(getAccount());
+//                    User.setUserPswd(getPassword());
+//                    startActivity(new Intent(LoginActivity.this, WebiopiActivity.class));
+//                    finish();//关闭页面
+//                } else {
+//                    showToast("输入的登录信息不正确");
+//                }
+//
+//                setLoginBtnClickable(true);  //这里解放登录按钮，设置为可以点击
+//                hideLoading();//隐藏加载框
+//            }
+//        };
+//        loginRunnable.start();
 
 
     }
@@ -222,6 +255,9 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
             case R.id.btn_login:
                 loadUserIp();
                 loadUserName();    //无论如何保存一下用户名
+                User.setUserID(getIP());//保存当前的用户信息
+                User.setUserName(getAccount());
+                User.setUserPswd(getPassword());
                 login(); //登陆
                 break;
             case R.id.iv_see_password:

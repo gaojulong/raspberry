@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_Test:
 
 //                sendHttpGet("http://webiopi.lovelqq.cn:13141/",true);
-                Okhttp.okHttpGet();
+//                Okhttp.okHttpGet();
                 break;
             case R.id.btn:
                 if (NetworkUtils.isNetworkAvailable(MyApplication.getContext())) {

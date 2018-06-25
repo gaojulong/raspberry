@@ -1,5 +1,7 @@
 package cn.lovelqq.julong.voicerw.LoginUtils;
 
+import android.util.Log;
+
 public class User {
     private static String userID;
     public static String userName;

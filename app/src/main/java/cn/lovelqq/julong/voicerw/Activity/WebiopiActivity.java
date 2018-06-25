@@ -1,6 +1,7 @@
 package cn.lovelqq.julong.voicerw.Activity;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.v4.app.INotificationSideChannel;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
         String GPIOstate = GPIO.getText().toString();//获取GPIO状态是IN还是OUT
         if ("IN".equals(GPIOstate)){
         GPIO.setText("OUT");
+        GPIO.setBackgroundColor(Color.argb(255,255, 0, 0));
         }else {
             GPIO.setText("IN");
         }
@@ -45,7 +47,7 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
                 Toast.makeText(this,"GPIO2",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.GPIOInOrOut3:
-                Okhttp.okHttpGet();
+                new Okhttp().okHttpGet();
                 Toast.makeText(this,"GPIO3",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.GPIOInOrOut4:
