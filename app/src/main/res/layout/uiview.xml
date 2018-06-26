@@ -18,6 +18,9 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:layout_marginBottom="@dimen/dp_10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -29,9 +32,10 @@
                         >
 
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_10">
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"/>
 
@@ -42,18 +46,28 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin1"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-
-                                android:text="1"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="1"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
+
                                 android:id="@+id/butPin2"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_rad"
+                                android:onClick="onClick"
                                 android:text="2"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
+
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -61,20 +75,25 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow
+                            android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut2"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/dp_18"
-                                android:text="@string/in"/>
+                                android:textSize="22dp"
+                                />
 
                             <TextView
                                 android:layout_column="2"
@@ -83,17 +102,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin3"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="3"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="3"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin4"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_rad"
+                                android:onClick="onClick"
                                 android:text="4"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -101,17 +129,22 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"/>
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut3"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
-                                android:text="@string/in"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"/>
 
                             <TextView
                                 android:layout_column="2"
@@ -120,17 +153,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin5"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="5"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="5"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin6"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="6"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -138,17 +180,22 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"/>
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut4"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
-                                android:text="@string/in"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"/>
 
                             <TextView
                                 android:layout_column="2"
@@ -157,17 +204,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin7"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="7"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="7"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin8"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="8"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -175,13 +231,15 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"/>
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"/>
 
@@ -192,17 +250,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin9"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="9"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="9"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin10"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="10"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -210,17 +277,22 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"/>
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut17"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
-                                android:text="@string/in"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"/>
 
                             <TextView
                                 android:layout_column="2"
@@ -229,17 +301,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin11"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="11"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="11"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin12"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="12"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -247,20 +328,28 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut18"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut27"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
-                                android:text="@string/in"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"/>
 
                             <TextView
                                 android:layout_column="2"
@@ -269,17 +358,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin13"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="13"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="13"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin14"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="14"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -287,18 +385,23 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut22"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
-                                android:text="@string/in"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"/>
 
                             <TextView
                                 android:layout_column="2"
@@ -307,17 +410,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin15"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="15"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="15"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin16"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="16"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -325,16 +437,21 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut23"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
@@ -346,17 +463,27 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin17"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="17"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="17"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin18"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="18"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
+                            />
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -364,20 +491,28 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut24"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut10"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
-                                android:text="@string/in"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"/>
 
                             <TextView
                                 android:layout_column="2"
@@ -386,17 +521,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin19"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="19"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="19"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin20"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="20"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -404,18 +548,23 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut9"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
-                                android:text="@string/in"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"/>
 
                             <TextView
                                 android:layout_column="2"
@@ -424,17 +573,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin21"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="21"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="21"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin22"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="22"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -442,20 +600,28 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut25"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut11"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
-                                android:text="@string/in"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"/>
 
                             <TextView
                                 android:layout_column="2"
@@ -464,17 +630,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin23"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="23"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="23"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin24"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="24"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -482,16 +657,21 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut8"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
@@ -503,17 +683,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin25"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="25"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="25"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin26"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="26"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -521,16 +710,21 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/GPIOInOrOut7"
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
                         </TableRow>
 
-                        <TableRow>
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
@@ -542,16 +736,27 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin27"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="27"/>
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
+                                android:text="27"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"
+                                />
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin28"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="28"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"
                                 />
 
                             <TextView
@@ -560,17 +765,23 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
                         </TableRow>
-                        <TableRow>
+
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut5"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
                             <TextView
@@ -580,17 +791,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin29"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="29"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="29"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin30"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="30"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -598,18 +818,24 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
 
                         </TableRow>
-                        <TableRow>
+
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut6"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
                             <TextView
@@ -619,17 +845,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin31"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="31"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="31"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin32"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="32"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -637,21 +872,30 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut12"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
 
                         </TableRow>
-                        <TableRow>
+
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut13"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
                             <TextView
@@ -661,17 +905,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin33"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="33"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="33"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin34"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="34"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -679,20 +932,25 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
 
 
-
                         </TableRow>
-                        <TableRow>
+
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut19"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
                             <TextView
@@ -702,17 +960,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin35"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="35"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="35"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin36"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="36"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -720,21 +987,30 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut16"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
 
-                        </TableRow>
-                        <TableRow>
+                        </TableRow >
+
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut26"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
                             <TextView
@@ -744,17 +1020,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin37"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="37"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="37"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin38"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="38"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -762,17 +1047,23 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut20"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
 
                         </TableRow>
-                        <TableRow>
+
+                        <TableRow android:layout_marginTop="@dimen/dp_5">
 
                             <Button
+                                android:layout_height="@dimen/button_height"
                                 android:layout_weight="1"
                                 android:background="@color/transparent"
                                 />
@@ -784,17 +1075,26 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin39"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginRight="@dimen/dp_2"
                                 android:layout_weight="1"
-                                android:text="39"/>
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
+                                android:text="39"
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <Button
-                                android:onClick="onClick"
                                 android:id="@+id/butPin40"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginLeft="@dimen/dp_2"
                                 android:layout_weight="1"
+                                android:background="@drawable/button_edge_black"
+                                android:onClick="onClick"
                                 android:text="40"
-                                />
+                                android:textColor="@color/white"
+                                android:textSize="22dp"/>
 
                             <TextView
                                 android:gravity="center_horizontal"
@@ -802,10 +1102,14 @@
                                 android:textSize="@dimen/text_size"/>
 
                             <Button
-                                android:onClick="onClick"
-                                android:layout_weight="1"
                                 android:id="@+id/GPIOInOrOut21"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_edge_bg_onpress"
+                                android:onClick="onClick"
                                 android:text="@string/in"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/dp_18"
                                 />
 
 

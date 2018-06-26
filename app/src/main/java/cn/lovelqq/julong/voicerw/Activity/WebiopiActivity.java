@@ -1,9 +1,6 @@
 package cn.lovelqq.julong.voicerw.Activity;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.support.v4.app.INotificationSideChannel;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -16,11 +13,13 @@ import netWork.okhttp.Okhttp;
 
 public class WebiopiActivity extends Activity implements View.OnClickListener {
     private Button GPIO;
+    private Okhttp okhttp;//获取okhttp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uiview);
+
     }
 
     /**
@@ -30,14 +29,10 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
      */
     private void setINOrOut(int GPIOid){
         GPIO=findViewById(GPIOid);
-        String GPIOstate = GPIO.getText().toString();//获取GPIO状态是IN还是OUT
-        if ("IN".equals(GPIOstate)){
-        GPIO.setText("OUT");
-        GPIO.setBackgroundColor(Color.argb(255,255, 0, 0));
-        }else {
-            GPIO.setText("IN");
-        }
+        GPIO.setBackground(getResources().getDrawable(R.drawable.button_edge_yellow));
+
     }
+
 
     @Override
     public void onClick(View view) {
@@ -119,6 +114,7 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
 
                 /******************下面为引脚的点击事件*************************/
             case R.id.butPin1:
+                setINOrOut(R.id.butPin1);
                 Toast.makeText(this,"PIN1",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.butPin2:

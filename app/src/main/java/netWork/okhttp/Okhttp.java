@@ -4,6 +4,7 @@ package netWork.okhttp;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.logging.Handler;
 
 import cn.lovelqq.julong.voicerw.LoginUtils.User;
 import okhttp3.Authenticator;
@@ -16,11 +17,21 @@ import okhttp3.Response;
 import okhttp3.Route;
 
 public class Okhttp {
+    private Handler handler;
     //第一个参数为用户名，第二个参数为密码
-//    private static final String basic = Credentials.basic("webiopi", "raspberry");
     private   String basic = Credentials.basic(User.getUserName(), User.getUserPswd());
     private   String url = "http://"+User.getUserID()+"/*";
 
+    private int Failure = 0;  //请求成功
+    private int Response = 1; //请求失败
+    //空构造函数
+    public Okhttp(){
+
+    }
+    //构造函数
+    public Okhttp(Handler handler){
+        this.handler=handler;
+    }
     /**
      * 获取OKHTTP的客户端
      * @return

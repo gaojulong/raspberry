@@ -66,7 +66,7 @@
     <dimen name="dp_15">15dp</dimen>
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_17">17dp</dimen>
-    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_18">22dp</dimen>
     <dimen name="dp_19">19dp</dimen>
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_21">21dp</dimen>
@@ -224,6 +224,7 @@
     <dimen name="dp_800">800dp</dimen>
     <dimen name="drawer_width">240dp</dimen>
     <dimen name="iv_width">20dp</dimen>
+    <dimen name="button_height">30dp</dimen>>
 
 
 

@@ -171,13 +171,19 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
     private void login() {
 
         //先做一些基本的判断，比如输入的用户命为空，密码为空，网络不可用多大情况，都不需要去链接服务器了，而是直接返回提示错误
-        if (getAccount().isEmpty()){
+        if (getIP().isEmpty()){
+            showToast("你输入的IP为空！");
+            return;
+        } else if (getAccount().isEmpty()){
             showToast("你输入的账号为空！");
             return;
-        }
-        if (getPassword().isEmpty()){
+        }else if (getPassword().isEmpty()){
             showToast("你输入的密码为空！");
             return;
+        }else {
+            User.setUserID(getIP());//传入当前的用户信息
+            User.setUserName(getAccount());
+            User.setUserPswd(getPassword());
         }
         //登录一般都是请求服务器来判断密码是否正确，要请求网络，要子线程
         showLoading();//显示加载框
@@ -255,9 +261,7 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
             case R.id.btn_login:
                 loadUserIp();
                 loadUserName();    //无论如何保存一下用户名
-                User.setUserID(getIP());//保存当前的用户信息
-                User.setUserName(getAccount());
-                User.setUserPswd(getPassword());
+
                 login(); //登陆
                 break;
             case R.id.iv_see_password:
@@ -446,7 +450,6 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
         }
         super.onDestroy();
     }
-
 
     public void showToast(final String msg) {
         runOnUiThread(new Runnable() {
