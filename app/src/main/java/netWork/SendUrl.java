@@ -30,16 +30,16 @@ public class SendUrl {
                 HttpURLConnection conn = null;
                 try {
                     // 利用string url构建URL对象
-                    URL mURL = new URL(url);
-                    conn = (HttpURLConnection) mURL.openConnection();
+                        URL mURL = new URL(url);
+                        conn = (HttpURLConnection) mURL.openConnection();
 
-                    conn.setRequestMethod("GET");
-                    conn.setReadTimeout(5000);
-                    conn.setConnectTimeout(10000);
+                        conn.setRequestMethod("GET");
+                        conn.setReadTimeout(5000);
+                        conn.setConnectTimeout(10000);
 
-                    int responseCode = conn.getResponseCode();
-                    Log.e("GET","GET"+responseCode);
-                    if (responseCode == 200) {
+                        int responseCode = conn.getResponseCode();
+                        Log.e("GET","GET"+responseCode);
+                        if (responseCode == 200) {
 
                         InputStream is = conn.getInputStream();
                         String response = getStringFromInputStream(is);
@@ -114,7 +114,7 @@ public class SendUrl {
     }
 
 
-    private static String getStringFromInputStream(InputStream is)
+    public static String getStringFromInputStream(InputStream is)
             throws IOException {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         // 模板代码 必须熟练

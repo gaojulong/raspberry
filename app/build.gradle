@@ -36,4 +36,5 @@ dependencies {
     api 'com.squareup.okio:okio:1.14.0'
     api 'com.alibaba:fastjson:1.2.8'
     implementation files('libs/sun.misc.BASE64Decoder.jar')
+    implementation files('libs/commons-codec-1.9.jar')
 }

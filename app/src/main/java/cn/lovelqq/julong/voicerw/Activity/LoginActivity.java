@@ -300,7 +300,8 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mLoadingDialog.hide();
+                    if (mLoadingDialog!=null)
+                        mLoadingDialog.hide();
                 }
             });
 

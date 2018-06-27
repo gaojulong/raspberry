@@ -2,35 +2,76 @@ package cn.lovelqq.julong.voicerw.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cn.lovelqq.julong.voicerw.R;
+import cn.lovelqq.julong.voicerw.RaspberryValus.GetButtonId;
+import cn.lovelqq.julong.voicerw.RaspberryValus.GetPinValus;
 import netWork.okhttp.Okhttp;
 
 
 public class WebiopiActivity extends Activity implements View.OnClickListener {
-    private Button GPIO;
-    private Okhttp okhttp;//获取okhttp
+    private Button GPIOFunctionBut;
+    private Button GPIOPinVlueBut;
+    private GetPinValus getPinValus;
+    private Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uiview);
+        getPinValus= new GetPinValus();
+        handler = new Handler();
+        handler.post(new TimerWhiel());
+    }
+    private void upDateAndUI() throws Exception{
+        Map<String,String[]> pinValusMap = new HashMap<String, String[]>();
+        pinValusMap = getPinValus.getjsonPin();   //刷新GPIO引脚数据
+        for (String key : pinValusMap.keySet()){  //每个GPIO引脚状态
+            String [] GPIOS = pinValusMap.get(key);
 
+            int  GPIOindex = Integer.valueOf(key);     //获取引脚的下标
+            String GPIOfunction = GPIOS[0];            //gpio的状态
+            int GPIOVlue =  Integer.valueOf(GPIOS[1]); //GPIO的值
+
+            setGPIO(GPIOindex,GPIOfunction,GPIOVlue);
+//            Log.i("GPIO","引脚下标:"+GPIOindex+", 状态"+ GPIOfunction+", 值"+GPIOVlue);
+        }
     }
 
     /**
      * 传入GPIO的按钮ID
-     * 根据当前状态判断设置输入还是输出
+     * 根据当前状态判断设置输入还是输出,和引脚的高低选择相对应的背景
      * @param GPIOid
      */
-    private void setINOrOut(int GPIOid){
-        GPIO=findViewById(GPIOid);
-        GPIO.setBackground(getResources().getDrawable(R.drawable.button_edge_yellow));
+    private void setGPIO(int GPIOid,String function,int vlue){
+        int GPIOFunctionId =GetButtonId.getGPIOFunctionId(GPIOid); // 获取状态对应引脚的ID
+        int GPIOVlusID = GetButtonId.getGPIOVluesId(GPIOid);       //获取GPIO值对应的ID
 
+        GPIOFunctionBut = findViewById(GPIOFunctionId);
+        GPIOPinVlueBut = findViewById(GPIOVlusID);
+        //把状态在按钮上显示
+        if ("IN".equals(function)){
+            GPIOFunctionBut.setText("IN");
+        }if ("OUT".equals(function)){
+            GPIOFunctionBut.setText("OUT");
+        }
+        //如果引脚值为0，则是黑背景；如果是1则是黄背景
+        if (1==vlue){
+            GPIOPinVlueBut.setBackground(getResources().getDrawable(R.drawable.button_edge_yellow));
+        }
+        if (0==vlue){
+            GPIOPinVlueBut.setBackground(getResources().getDrawable(R.drawable.button_edge_black));
+        }
     }
 
 
@@ -38,11 +79,9 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.GPIOInOrOut2:
-                setINOrOut(R.id.GPIOInOrOut2);
                 Toast.makeText(this,"GPIO2",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.GPIOInOrOut3:
-                new Okhttp().okHttpGet();
                 Toast.makeText(this,"GPIO3",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.GPIOInOrOut4:
@@ -114,7 +153,6 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
 
                 /******************下面为引脚的点击事件*************************/
             case R.id.butPin1:
-                setINOrOut(R.id.butPin1);
                 Toast.makeText(this,"PIN1",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.butPin2:
@@ -234,6 +272,17 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
             case R.id.butPin40:
                 Toast.makeText(this,"PIN40",Toast.LENGTH_SHORT).show();
                 break;
+        }
+    }
+    private class TimerWhiel implements Runnable{
+        @Override
+        public void run() {
+            try {
+                upDateAndUI();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            handler.postDelayed(this,100);//每个进行一次刷新
         }
     }
 }
