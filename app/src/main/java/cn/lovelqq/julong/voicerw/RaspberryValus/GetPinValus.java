@@ -60,20 +60,20 @@ public class GetPinValus {
                     conn.setReadTimeout(5000);
                     conn.setConnectTimeout(10000);
 
-                    authString = "webiopi"+":"+"raspberry";
+//                    authString = "webiopi"+":"+"raspberry";
                     byte[] authEncBytes = Base64.encodeBase64(authString.getBytes());
                     String authStringEnc = new String(authEncBytes);
                     conn.setRequestProperty("Authorization", "Basic " + authStringEnc);
                     conn.setRequestProperty("User-Agent", "MSIE 7.0");
 
                     int responseCode = conn.getResponseCode();
-                    Log.e("GET","GET"+responseCode);
+                    Log.v("GET","GET"+responseCode);
                     if (responseCode == 200) {
 
                         InputStream is = conn.getInputStream();
                         String response = SendUrl.getStringFromInputStream(is);
                         parseJsonPin(response);
-                        Log.e("获取成功",""+response);
+//                        Log.e("获取成功",""+response);
                     } else {
                         Log.e("请求失败","请求失败");
                         throw new NetworkErrorException("response status is "+responseCode);
@@ -86,7 +86,7 @@ public class GetPinValus {
                 finally {
                     if (conn != null) {
                         conn.disconnect();
-                        Log.e("TAG","执行结束关闭连接");
+//                        Log.e("TAG","执行结束关闭连接");
                     }
                 }
 
@@ -94,6 +94,12 @@ public class GetPinValus {
         }).start();
         return pinValusMap;
     }
+
+    /**
+     * 禁止使用
+     * 使用此方法会产生溢出
+     * @return
+     */
 
     public Map getjsonPin(){
         okHttpClient = okhttp.getOkClien();

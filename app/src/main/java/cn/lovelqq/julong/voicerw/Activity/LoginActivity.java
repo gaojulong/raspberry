@@ -181,7 +181,7 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
             showToast("你输入的密码为空！");
             return;
         }else {
-            User.setUserID(getIP());//传入当前的用户信息
+            User.setUserIP(getIP());//传入当前的用户信息
             User.setUserName(getAccount());
             User.setUserPswd(getPassword());
         }
@@ -201,7 +201,7 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
             public void onResponse(Call call, Response response) throws IOException {
                 showToast("登录成功");
                 loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
-                User.setUserID(getIP());//保存当前的用户信息
+                User.setUserIP(getIP());//保存当前的用户信息
                 User.setUserName(getAccount());
                 User.setUserPswd(getPassword());
                 startActivity(new Intent(LoginActivity.this, WebiopiActivity.class));
@@ -211,39 +211,6 @@ public class LoginActivity extends Activity implements View.OnClickListener,Comp
             }
 
         });
-//        Thread loginRunnable = new Thread() {
-//
-//            @Override
-//            public void run() {
-//                super.run();
-//                setLoginBtnClickable(false);//点击登录后，设置登录按钮不可点击状态
-//                //睡眠3秒
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                //判断账号和密码
-//                if (getAccount().equals("webiopi") && getPassword().equals("raspberry")) {
-//                    showToast("登录成功");
-//                    loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
-//                    User.setUserID(getIP());//保存当前的用户信息
-//                    User.setUserName(getAccount());
-//                    User.setUserPswd(getPassword());
-//                    startActivity(new Intent(LoginActivity.this, WebiopiActivity.class));
-//                    finish();//关闭页面
-//                } else {
-//                    showToast("输入的登录信息不正确");
-//                }
-//
-//                setLoginBtnClickable(true);  //这里解放登录按钮，设置为可以点击
-//                hideLoading();//隐藏加载框
-//            }
-//        };
-//        loginRunnable.start();
-
-
     }
 
     /**

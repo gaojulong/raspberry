@@ -4,7 +4,7 @@ import android.accounts.NetworkErrorException;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.util.Base64;
+import org.apache.commons.codec.binary.Base64;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import cn.lovelqq.julong.voicerw.LoginUtils.User;
 import cn.lovelqq.julong.voicerw.MyApplication;
 
 /**
@@ -38,16 +39,16 @@ public class SendUrl {
                         conn.setConnectTimeout(10000);
 
                         int responseCode = conn.getResponseCode();
-                        Log.e("GET","GET"+responseCode);
+                        Log.i("GET","GET"+responseCode);
                         if (responseCode == 200) {
 
                         InputStream is = conn.getInputStream();
                         String response = getStringFromInputStream(is);
-                        Log.e("获取成功",""+response);
+                        Log.i("获取成功",""+response);
                         httpCallbackListener.OnSucceed(response);
                     } else {
-                        Log.e("请求失败","请求失败");
-                        httpCallbackListener.OnSucceed("请求失败,错误代码"+responseCode);
+                        Log.i("请求失败","请求失败，错误代码"+responseCode);
+                        httpCallbackListener.OnFailure(responseCode);
                         throw new NetworkErrorException("response status is "+responseCode);
                     }
                 }
@@ -59,13 +60,16 @@ public class SendUrl {
                 finally {
                     if (conn != null) {
                         conn.disconnect();
-                        Log.e("TAG","执行结束关闭连接");
+                        Log.i("TAG","执行结束关闭连接");
                     }
                 }
             }
         }).start();
 
     }
+
+
+    private static  String authString = User.getUserName()+":"+User.getUserPswd();
     public static void senHttpPost(final String url,final HttpCallbackListener httpCallbackListener) {
         if (!NetworkUtils.isNetworkAvailable(MyApplication.getContext())){
             Toast.makeText(MyApplication.getContext(),"请检查网络",Toast.LENGTH_LONG).show();
@@ -77,35 +81,39 @@ public class SendUrl {
                 try {
                     // 利用string url构建URL对象
                     URL mURL = new URL(url);
+                    Log.e("url",url);
                     conn = (HttpURLConnection) mURL.openConnection();
-
                     conn.setRequestMethod("POST");
                     conn.setReadTimeout(5000);
                     conn.setConnectTimeout(10000);
 
+                    byte[] authEncBytes = Base64.encodeBase64(authString.getBytes());
+                    String authStringEnc = new String(authEncBytes);
+                    conn.setRequestProperty("Authorization", "Basic " + authStringEnc);
+                    conn.setRequestProperty("User-Agent", "MSIE 7.0");
+
+
                     int responseCode = conn.getResponseCode();
-                    Log.e("GET","GET"+responseCode);
+                    Log.i("POST","POST"+responseCode);
                     if (responseCode == 200) {
 
                         InputStream is = conn.getInputStream();
                         String response = getStringFromInputStream(is);
-                        Log.e("获取成功",""+response);
+                        Log.i("获取成功",""+response);
                         httpCallbackListener.OnSucceed(response);
                     } else {
-                        Log.e("请求失败","请求失败");
-                        httpCallbackListener.OnSucceed("请求失败");
+                        httpCallbackListener.OnFailure(responseCode);
                         throw new NetworkErrorException("response status is "+responseCode);
                     }
                 }
                 catch (Exception e) {
                     e.printStackTrace();
                     httpCallbackListener.OnError(e);
-                    Log.e("程序异常","程序异常");
                 }
                 finally {
                     if (conn != null) {
                         conn.disconnect();
-                        Log.e("TAG","执行结束关闭连接");
+                        Log.i("TAG","执行结束关闭连接");
                     }
                 }
             }

@@ -20,7 +20,7 @@ public class Okhttp {
     private Handler handler;
     //第一个参数为用户名，第二个参数为密码
     private   String basic = Credentials.basic(User.getUserName(), User.getUserPswd());
-    private   String url = "http://"+User.getUserID()+"/*";
+    private   String url = "http://"+User.getUserIP()+"/*";
 
     private int Failure = 0;  //请求成功
     private int Response = 1; //请求失败

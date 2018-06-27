@@ -6,5 +6,6 @@ package netWork;
 
 public interface HttpCallbackListener {
      void OnSucceed(String response);
+     void OnFailure(int code);
      void OnError(Exception e);
 }

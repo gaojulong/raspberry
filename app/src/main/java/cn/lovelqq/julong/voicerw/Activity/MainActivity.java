@@ -55,6 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //显示返回结果
                 showResponse(response);
             }
+
+            @Override
+            public void OnFailure(int code) {
+
+            }
+
             @Override
             public void OnError(Exception e) {
             }

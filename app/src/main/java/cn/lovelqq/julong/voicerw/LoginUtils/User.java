@@ -1,16 +1,14 @@
 package cn.lovelqq.julong.voicerw.LoginUtils;
 
-import android.util.Log;
-
 public class User {
-    private static String userID;
+    private static String userIP;
     public static String userName;
     public static String userPswd;
 
 
 
-    public static void setUserID(String userID) {
-        User.userID = userID;
+    public static void setUserIP(String userID) {
+        User.userIP = userID;
     }
 
     public static void setUserName(String userName) {
@@ -21,8 +19,8 @@ public class User {
         User.userPswd = userPswd;
     }
 
-    public static String getUserID() {
-        return userID;
+    public static String getUserIP() {
+        return userIP;
     }
 
     public static String getUserName() {
