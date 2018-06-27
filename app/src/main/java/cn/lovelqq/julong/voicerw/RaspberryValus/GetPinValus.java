@@ -86,7 +86,7 @@ public class GetPinValus {
                 finally {
                     if (conn != null) {
                         conn.disconnect();
-//                        Log.e("TAG","执行结束关闭连接");
+                        Log.i("TAG","执行结束关闭连接");
                     }
                 }
 

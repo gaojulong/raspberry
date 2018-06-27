@@ -45,16 +45,15 @@ public class WebiopiActivity extends Activity implements View.OnClickListener {
      */
     private void upDateAndUI() throws Exception{
         Map<String,String[]> pinValusMap = new HashMap<String, String[]>();
-        getPinValus.getJson();   //刷新GPIO引脚数据
+        getPinValus.getJson();   //刷新GPIO引脚数据。如果刷新返回true
 
-        pinValusMap = GetPinValus.pinValusMap;
+        pinValusMap = GetPinValus.pinValusMap;    //获取map里存放的数据
         for (String key : pinValusMap.keySet()){  //每个GPIO引脚状态
             String [] GPIOS = pinValusMap.get(key);
             int  GPIOindex = Integer.valueOf(key);     //获取引脚的下标
-            String GPIOfunction = GPIOS[0];            //gpio的状态
+            String GPIOfunction = GPIOS[0];            //获取刷新gpio的状态
             int GPIOVlue =  Integer.valueOf(GPIOS[1]); //GPIO的值
-            setGPIO(GPIOindex,GPIOfunction,GPIOVlue);
-//            Log.i("GPIO","引脚下标:"+GPIOindex+", 状态"+ GPIOfunction+", 值"+GPIOVlue);
+            setGPIO(GPIOindex,GPIOfunction,GPIOVlue);  //更新UI数据
         }
     }
 
